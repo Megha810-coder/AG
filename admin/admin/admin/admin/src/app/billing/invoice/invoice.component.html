@@ -1,0 +1,35 @@
+
+
+  <input type="button" value="submit" data-toggle="modal" (click)="infoModal.show()">          
+                
+ <div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Send</h4>
+          <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form 
+         #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)">
+              Name:-<input type="text" name="fname" ngModel>
+              <input type="submit" value="submit">
+            </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+          <a [routerLink] = "'/billing/customer'"> <button type="button" class="btn btn-info">Okay</button></a>
+        </div> -->
+      </div>
+    </div>
+    </div> 
+
+
+ 
+
+
+
+
+

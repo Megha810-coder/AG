@@ -1,0 +1,111 @@
+
+
+   <head>
+    <style>
+      .card-header {
+        background-color: #BFC9CA;
+  
+      }
+    </style>
+  </head>
+  <div class="animated fadeIn">
+    <div class="row">
+        <div class>
+                         
+            <a [routerLink] = "'/billing/Product'"> <button type="button" class="btn btn-sm btn-primary">Back</button> </a>
+        </div>
+        <br>
+        <br>
+
+      <div class="col-md-12">
+            
+        <div class="card">
+          <div class="card-header">
+            <h3>Customer Info</h3>
+          </div>
+          <div class="card-body">
+            <form>
+              
+                   		
+                   				 <div class="row">
+                            	<div class="col-sm-6">
+								<div class="row">
+									<label class="col-sm-3 col-form-label" >Customer FullName </label>
+									<div class="form-group col-sm-9"> 
+									{{bill.c_name}}
+                                    </div>
+                                 	</div>
+                            	<div class="row">
+                                   	<label class="col-sm-3 col-form-label">Contact Number </label>
+                                    	<div class=" form-group col-sm-9">
+                                        {{bill.contact_no}}
+                                        </div>
+                                </div>
+                           		<div class="row">
+	                                <label class="col-sm-3 col-form-label">GST Number</label>
+	                                    <div class=" form-group col-sm-9">
+                                       {{bill.gst_no}} 
+	                                    </div>
+	                             </div>
+	                         </div>
+         					<div class="col-sm-6">
+                            	<div class="row">
+                                   	<label class="col-sm-3 col-form-label">Address </label>
+                                    	<div class=" form-group col-sm-9">
+                                        {{bill.address}} </div>
+                                </div>
+                           		<div class="row">
+	                                <label class="col-sm-3 col-form-label">City</label>
+	                                    <div class=" form-group col-sm-9">
+	                                        {{bill.city}}
+	                                    </div>
+	                             </div>
+                           </div>
+                           <div class="col-sm-6">
+                              <div class="row">
+	                                <label class="col-sm-3 col-form-label">Email Id</label>
+	                                    <div class=" form-group col-sm-9">
+                                        {{bill.email_id}}
+	                                    </div>
+	                             </div>
+                             </div>
+                             <div class="col-sm-6">
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">Note for Address</label>
+                                        <div class=" form-group col-sm-9">
+                                           {{bill.note_of_add}} 
+                                        </div>
+                                 </div>
+                               </div>
+                               
+                        </div>  
+                        <hr>
+
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>Product List</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                            <td><input type="checkbox" name="pro1"  [(ngModel)]="bill.pro1" [checked]="bill.pro1==1"><font size="4" >FRENCH FRIES </font> <br>
+                                <input type="checkbox" name="pro2" [(ngModel)]="bill.pro2"  [checked]="bill.pro2==1"><font size="4"   >MILK(AMUL TAZAA) </font> <br>
+                                <input type="checkbox" name="pro3" [(ngModel)]="bill.pro3"  [checked]="bill.pro3==1"><font size="4"   >MALAI CURD </font><br>
+                                <input type="checkbox" name="pro4" [(ngModel)]="bill.pro4"  [checked]="bill.pro4==1"><font size="4"   > LOOSE PANEER </font></td>
+                            </tr>
+                          </tbody>
+                         </table>
+
+                     
+								
+							       </form>
+      </div>
+        </div>
+  
+      </div>
+     
+    </div>
+   
+  </div>
+  

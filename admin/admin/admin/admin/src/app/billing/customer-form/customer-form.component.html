@@ -1,0 +1,312 @@
+
+
+   <head>
+    <style>
+      .card-header {
+        background-color: #BFC9CA;
+  
+      }
+    </style>
+  </head>
+  <div class="animated fadeIn">
+    <div class="row">
+        <div class>
+                         
+            <!-- <a [routerLink] = "'/billing/Product'"> <button type="button" class="btn btn-sm btn-primary">Back</button> </a> -->
+        </div>
+        <br>
+        <br>
+
+      <div class="col-md-12">
+            
+        <div class="card">
+          <div class="card-header">
+            <h3>Customer Info</h3>
+          </div>
+          <div class="card-body">
+            <form  (ngSubmit) = "onClickSubmit()">
+              
+                   		
+                   				 <div class="row">
+                            	<div class="col-sm-6">
+                                
+								<div class="row">
+									<label class="col-sm-3 col-form-label" >Customer FullName </label>
+									<div class="form-group col-sm-9"> 
+                  
+                  <input type="text" class="form-control" name="c_name"   [(ngModel)]="bill.c_name">
+                  <!-- <select  name="c_name" [(ngModel)]="bill.c_name">  
+                      <option value="0">--Select--</option>  
+                      <option *ngFor="let cust of myresponse"  
+                              value={{cust}}>  
+                          {{cust}}  
+                      </option>  
+                  </select>  -->
+                  <!-- &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-sm btn-primary" (click)="newCustomer();">New Customer</button> -->
+                  </div>
+                 
+                </div>
+               
+                            	<div class="row">
+                                   	<label class="col-sm-3 col-form-label">Contact Number </label>
+                                    	<div class=" form-group col-sm-9">
+                                        <input type="text" class="form-control" name="contact_no" [(ngModel)]="bill.contact_no">
+                                        </div>
+                                </div>
+                           		<div class="row">
+	                                <label class="col-sm-3 col-form-label">GST Number</label>
+	                                    <div class=" form-group col-sm-9">
+                                        <input type="text" class="form-control" name="gst_no"  [(ngModel)]="bill.gst_no"> 
+	                                    </div>
+	                             </div>
+	                         </div>
+         					<div class="col-sm-6">
+                            	<div class="row">
+                                   	<label class="col-sm-3 col-form-label">Address </label>
+                                    	<div class=" form-group col-sm-9">
+                                        <textarea type="text" class="form-control"  name="address"  [(ngModel)]="bill.address" > </textarea>                                     </div>
+                                </div>
+                           		<div class="row">
+	                                <label class="col-sm-3 col-form-label">City</label>
+	                                    <div class=" form-group col-sm-9">
+	                                        <input type="text" class="form-control"  name="city"  [(ngModel)]="bill.city" >
+	                                    </div>
+	                             </div>
+                           </div>
+                           <div class="col-sm-6">
+                              <div class="row">
+	                                <label class="col-sm-3 col-form-label">Email Id</label>
+	                                    <div class=" form-group col-sm-9">
+                                        <input type="text" class="form-control" name="email_id"  [(ngModel)]="bill.email_id">
+	                                    </div>
+	                             </div>
+                             </div>
+                             <div class="col-sm-6">
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label">Note for Address</label>
+                                        <div class=" form-group col-sm-9">
+                                            <textarea type="text" class="form-control"  name="note_of_add"  [(ngModel)]="bill.note_of_add"  > </textarea>  
+                                        </div>
+                                 </div>
+                               </div>
+                               
+                        </div>   
+                        <hr>
+
+                        <!-- <div class="row">
+                          <label class="col-sm-1 col-form-label">Brand </label>
+                          <br>
+                           <div class=" form-group col-sm-1">
+                             <input type="text" class="form-control" name="brand_name" >
+                          </div>
+                          <label class="col-sm-1 col-form-label">Name </label>
+                          <br>
+                           <div class=" form-group col-sm-1">
+                             <input type="text" class="form-control" name="brand_name" >
+                          </div>
+                          <label class="col-sm-1 col-form-label">Name </label>
+                          <br>
+                           <div class=" form-group col-sm-1">
+                             <input type="text" class="form-control" name="brand_name" >
+                          </div>
+                          <label class="col-sm-1 col-form-label">Name </label>
+                          <br>
+                           <div class=" form-group col-sm-1">
+                             <input type="text" class="form-control" name="brand_name" >
+                          </div>
+                          <label class="col-sm-1 col-form-label">Name </label>
+                          <br>
+                           <div class=" form-group col-sm-1">
+                             <input type="text" class="form-control" name="brand_name" >
+                          </div>
+                          <label class="col-sm-1 col-form-label">Name </label>
+                          <br>
+                           <div class=" form-group col-sm-1">
+                             <input type="text" class="form-control" name="brand_name" >
+                          </div>
+                          <label class="col-sm-1 col-form-label">Name </label>
+                          <br>
+                           <div class=" form-group col-sm-1">
+                             <input type="text" class="form-control" name="brand_name" >
+                          </div>
+
+                             
+                     </div> -->
+
+
+                        <!-- <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>Product List</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let pro of myresponse1">
+                              <td>
+                                 <input type="checkbox"  name="pro" ngModel><font size="4">{{pro}}</font> <br>
+                              </td>
+                            </tr>
+                          </tbody>
+                         </table> -->
+                         <!-- <div class="form-group">
+                          <label  for="options">Options :</label>
+                          <label *ngFor="let pro of myresponse1" class="form-control">
+                              <input type="checkbox" name="options" /> {{pro.p_name}}
+                          </label>
+                        </div> -->
+                        <!-- <div *ngFor="let item of myresponse1">
+                          <label>
+                          <input type="checkbox" value="{{item.p_id}}" [(ngModel)]="bill.Checked" [name]="item.p_name"/>
+                          <span innerHTML="{{item.p_name}}"></span>
+                      </label>
+                      </div> -->
+                      <!-- <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; let i = index">
+                        <input type="checkbox"  [formControlName]="i">
+                        {{orders[i].name}}<br>
+                      </label> -->
+                        <!-- <div *ngFor="let item of myresponse1">
+                          <label>
+                          <input type="checkbox" value="{{item}}" ngModel [name]="item"  />
+                          <span innerHTML="{{item}}"></span>
+                      </label>
+                      </div> -->
+                      <!-- value="{{item.p_id}}"  -->
+                      <!-- (click)="onSelect(myresponse1);" -->
+                      <!-- <div *ngFor="let item of myresponse1">
+                        <label>
+                        <input type="checkbox" 
+                        value="{{item}}" 
+                              [(ngModel)]="bill.value1"
+                               [checked]="item.Checked" 
+                               (change)="item.Checked = !item.Checked" 
+                                />
+                        <span innerHTML="{{item.p_name}}"></span>
+                       </label>
+                    </div> -->
+                    <!-- <div *ngFor="let item of myresponse1">
+                      <label>
+                      <input type="checkbox" 
+                      (change)="onChange(item.p_name, $event.target.checked)"/>
+                      {{item.p_name}}<br>
+                     </label>
+                  </div> -->
+                    <!-- <li *ngFor="let hero of myresponse1"
+                 [class.selected]="hero === selectedHero"
+                   (click)="onSelect(hero)">
+                     <span class="badge">{{hero.p_id}}</span> {{hero.p_name}}
+                    </li> -->
+                    
+
+                    <form [formGroup]="myForm" >
+                        <!-- <table class="table table-bordered table-striped table-sm">
+                            <thead>
+                              <tr>
+                                <th>Product List</th>
+                                <th>Size</th>
+                                <th>Rate</th>
+                                <th>Package</th>
+                                <th>Box</th>
+                                <th>Qty</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of myresponse1">
+                                <td>
+                                    <input type="checkbox" 
+                                    (change)="onChange(item.p_name, $event.target.checked)"/>{{item.p_name}}
+                                </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" formControlName="size"></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" formControlName="rate"></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="package"></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="box"></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="qty"></td>
+                              </tr>
+                            </tbody>
+                        </table> -->
+                        <!-- <p *ngFor="let cd1 of merged1">
+                       <b> {{cd1.Checked}}</b> -->
+                        <!-- {{myresponse3}}
+                        {{megha1.pro_name}} -->
+                        {{merged1.Checked}}
+                        {{megha1.pro_name}}
+                      <!-- </p> -->
+                            <table>  
+                                <thead>
+                                    <tr>
+                                      <th>Product List</th>
+                                      <th>Size</th>
+                                      <th>Rate</th>
+                                      <th>Package</th>
+                                      <th>Box</th>
+                                      <th>Qty</th>
+                                    </tr>
+                                  </thead>
+                                 
+                              <tr formArrayName="ClassDetails" *ngFor="let cd of myForm.controls.ClassDetails.controls;let i=index;">  
+                                  <td formGroupName={{i}}>  
+                                      <b> 
+                                          <input type="checkbox"
+                                          /> {{cd.get('Class').value}} 
+                                       </b>  
+
+                                      <input  type="text" formControlName="size"/> 
+                                      <input  type="text" formControlName="rate"/>
+                                      <input  type="text" formControlName="package"/>
+                                      <input  type="text" formControlName="box"/>
+                                      <input  type="text" formControlName="qty"/>
+                                    </td> 
+                              </tr>  
+                          </table>  
+                          <!-- <div *ngFor="let item of PartyRoles">
+                            <label>
+                            <input type="checkbox" value="{{item.Id}}" [attr.checked]="item.Checked==true ? true : null" />
+                            <span innerHTML="{{item.Name}}"></span>
+                           </label>
+                        </div> -->
+                         <!-- <pre>Form values: {{myForm.value | json}}</pre> -->
+                      <!-- <div *ngFor="let item of myresponse1">
+                        
+                        <input type="checkbox" 
+                        (change)="onChange(item.p_name, $event.target.checked)"/>
+                        {{item.p_name}}<br>
+                     
+                    </div> -->
+                    </form>
+                    <!-- {{myForm.value | json}} -->
+                      <!-- [(ngModel)]="item.Checked" -->
+                        <div class="card-footer">
+                          <input type = "submit" value = "submit"  class="btn btn-sm btn-primary" data-toggle="modal" (click)="infoModal.show()">
+                        </div>
+                     </form>
+                    
+                    <!-- <pre>Form values: {{myForm.value | json}}</pre> -->
+      </div>
+        </div>
+  
+      </div>
+     
+    </div>
+   
+  </div>
+  <div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Send</h4>
+          <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Your Data Saved successfully.&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+          <a [routerLink] = "'/billing/customer'"> <button type="button" class="btn btn-info">Okay</button></a>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+  
+    <!-- (click)="viewhide(myresponse1);" -->

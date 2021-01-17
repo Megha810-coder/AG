@@ -1,0 +1,129 @@
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: lightsteelblue;">
+    <h4 class="modal-title" id="modal-basic-title" >Customer Report</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+   
+    <form>
+        <div class="card-card">
+            <div class="card-body">
+              <form  #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
+                <div class="form-group">
+
+                  <label ><b><i>Name</i></b></label>
+                  <input type="text" name="name" class="form-control" placeholder="Enter Name.." ngModel >
+                </div>
+                <div class="form-group">
+                  <label ><b><i>From</i></b></label>
+                  <input type="date" name="from" class="form-control" placeholder="Enter Date.." ngModel>
+                </div>
+                <div class="form-group">
+                  <label ><b><i>To</i></b></label>
+                  <input type="date" name="to" class="form-control" placeholder="Enter Date.." ngModel >
+                </div>
+             
+            <input style="background-color:lightgoldenrodyellow;" type="submit" value="submit">
+                  <input style="background-color:lightgoldenrodyellow;" type="submit" value="Close" (click)="modal.dismiss('Cross click')">
+              </form>
+            </div>
+          </div>
+     
+    </form>
+  
+  </div>
+  <div class="modal-footer" style="background-color: lightsteelblue;">
+  </div>
+  </ng-template>
+
+
+<div class="row" *ngIf="show1"> 
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center">
+                   <!-- <h3>REPORTS</h3> -->
+                   <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <button type="button" (click)="open(content)" class="btn  btn-block btn-primary">Customer Export</button>
+                 </div>
+                 <br>
+                  </div>
+            </div>
+          </div>
+          
+           </div>
+           </div>
+          </div>
+
+        
+      <!-- <div class="card-header">
+      </div>
+      <br>
+      
+     <br> -->
+   
+
+<div class="row"> 
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center" *ngIf="show">
+                  <!-- <h3>AGRAWAL DAIRY & MINI MARKET</h3><br>
+                  <h3>(Viman Nagar MAHARASHRA-411014)</h3>
+                  <br> -->
+                NAME : {{value}}<br>
+                GST  : {{value1}}<br>
+                ADDRESS : {{value2}}<br>
+                FROM : {{date1}}  to
+                TO :{{date2}}
+                  </div>
+            </div>
+          </div>
+      <div class="card-body">
+          <table class="table table-striped">
+           <!-- <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center" *ngIf="show">
+                NAME : {{value}}<br>
+                GST  : {{value1}}<br>
+                ADDRESS : {{value2}}
+                  </div>
+            </div>
+          </div> -->
+      <!-- <div class="card-header">
+      </div> -->
+             <thead>
+               <tr>
+                  <th>SR NO</th>
+                  <th>Invoice Date</th>
+                  <th>Invoice Number</th>
+                  <th>GrossAmt</th>
+                  <th>CGST</th>
+                  <th>SGST</th>
+                  <th>IGST</th>
+                  <th>GST Amt</th>
+                  <th>Net Amt</th>
+               </tr>
+               <tbody>
+                  <tr *ngFor= "let data of myresponse3;let i=index;">
+                      <td>{{i+1}}</td>
+                      <td>{{data.date}}</td>
+                      <td>{{data.b_number}}</td>
+                      <td>{{data.grossamt}}</td>
+                      <td>{{data.cgst}}</td>
+                      <td>{{data.sgst}}</td>
+                      <td>{{data.igst}}</td>
+                      <td>{{data.gstamt1}}</td>
+                      <td>{{data.netamt}}</td>
+                    </tr>
+               </tbody>  
+                </table>
+          
+         </div>
+         </div>
+         </div>
+</div>

@@ -1,0 +1,119 @@
+
+
+
+  <input type="button" value="submit" data-toggle="modal" (click)="infoModal.show()">          
+                
+ <div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Send</h4>
+          <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form  #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)">
+            <div class="row">
+                <div class="col-sm-12">
+                  
+  <div class="row">
+    <label class="col-sm-2 col-form-label" >Customer FullName </label>
+    <div class="form-group col-sm-4"> 
+    <input type="text" class="form-control" name="c_name"   [(ngModel)]="bill.c_name">
+    </div>
+                       <label class="col-sm-2 col-form-label">Contact Number </label>
+                        <div class=" form-group col-sm-4">
+                          <input type="text" class="form-control" name="contact_no" [(ngModel)]="bill.contact_no">
+                          </div>
+                  </div>
+                
+             </div>
+          <div class="col-sm-12">
+                <div class="row">
+                       <label class="col-sm-2 col-form-label">Address </label>
+                        <div class=" form-group col-sm-4">
+                          <textarea type="text" class="form-control"  name="address"  [(ngModel)]="bill.address" > </textarea>                                     </div>
+                  
+                    <label class="col-sm-2 col-form-label">City</label>
+                        <div class=" form-group col-sm-4">
+                            <input type="text" class="form-control"  name="city"  [(ngModel)]="bill.city" >
+                        </div>
+                 </div>
+             </div>
+             <div class="col-sm-6">
+                <div class="row">
+                    <label class="col-sm-3 col-form-label">Email Id</label>
+                        <div class=" form-group col-sm-9">
+                          <input type="text" class="form-control" name="email_id"  [(ngModel)]="bill.email_id">
+                        </div>
+                 </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="row">
+                      <label class="col-sm-3 col-form-label">Note for Address</label>
+                          <div class=" form-group col-sm-9">
+                              <textarea type="text" class="form-control"  name="note_of_add"  [(ngModel)]="bill.note_of_add"  > </textarea>  
+                          </div>
+                   </div>
+                 </div>
+                 <div class="col-sm-6">
+                  <div class="row">
+                      <label class="col-sm-3 col-form-label">GST Number</label>
+                          <div class=" form-group col-sm-9">
+                            <input type="text" class="form-control" name="gst_no"  [(ngModel)]="bill.gst_no">
+                          </div>
+                   </div>
+                 </div>
+          </div>
+           
+          <!-- {{value}} -->
+          <!-- {{myresponse1}} -->
+          <!-- <table class="table table-bordered table-striped table-sm">  
+            <thead>
+                <tr>
+                  <th>Product List</th>
+                  <th>Rate</th>
+                </tr>
+              </thead>
+              <tbody>              
+                <tr formArrayName="ClassDetails" *ngFor="let cd of myForm.controls.ClassDetails.controls;let i=index;">  
+                <td formGroupName={{i}}>  
+                    <b> 
+                    
+                        <input type="checkbox"/> {{cd.get('Class').value}} 
+                     </b>  
+                    <input  type="text" formControlName="rate"/>
+                  </td> 
+            </tr> 
+          </tbody> -->
+
+             
+          <!-- <tr formArrayName="ClassDetails" *ngFor="let cd of myForm.controls.ClassDetails.controls;let i=index;">  
+              <td formGroupName={{i}}>  
+                  <b> 
+                      <input type="checkbox"
+ /> {{cd.get('Class').value}} 
+                   </b>  
+                  <input  type="text" formControlName="rate"/>
+                </td> 
+          </tr>   -->
+      <!-- </table> -->
+          
+            </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+          <a [routerLink] = "'/billing/customer'"> <button type="button" class="btn btn-info">Okay</button></a>
+        </div> -->
+      </div>
+    </div>
+    </div> 
+
+
+ 
+
+
+
+
+

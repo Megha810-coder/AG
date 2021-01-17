@@ -1,0 +1,81 @@
+
+
+
+   <head>
+      <style>
+        .card-header {
+          background-color: #BFC9CA;
+    
+        }
+      </style>
+    </head>
+    <div class="animated fadeIn">
+      <div class="row">
+          <div class>
+                           
+              <a [routerLink] = "'/billing/'"> <button type="button" class="btn btn-sm btn-primary">Back</button> </a>
+          </div>
+          <br>
+          <br>
+  
+        <div class="col-md-12">
+              
+          <div class="card">
+            <div class="card-header">
+              <h3>Customer</h3>
+            </div>
+            <div class="card-body">
+              <form #myform="ngForm" (ngSubmit)="onClickSubmit(myform.value)">
+                  <div class="row">
+                      <label class="col-sm-2 col-form-label">Customer Name </label>
+                       <div class=" form-group col-sm-3">
+                         <input type="text" class="form-control" name="c_name" ngModel>
+                         </div>
+                  </div>
+                          <div class="card-footer">
+                            <input type = "submit" value = "submit" data-toggle="modal" (click)="infoModal.show()">
+                          </div>
+                  
+                       </form>
+        </div>
+          </div>
+    
+        </div>
+       
+      </div>
+     
+    </div>
+    <div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-info" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Send</h4>
+            <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p *ngIf="show; else notShow">CUSTOMER NAME EXISTS.....&hellip;</p>
+           
+          </div>
+          <ng-template #notShow>
+            <p>
+              CUSTOMER NAME NOT EXISTS.....
+            </p>
+          </ng-template>
+          <div class="modal-footer">
+         
+            <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+               <div *ngIf="show; else ntShow">
+              <button type="button" class="btn btn-info" (click)="getCData(myresponse);">Okay</button>
+              </div>
+              <ng-template #ntShow>
+                  <button type="button" class="btn btn-info" (click)="save1();" >New Customer</button>
+              </ng-template>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      
+    
+  

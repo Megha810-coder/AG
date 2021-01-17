@@ -1,0 +1,672 @@
+<head>
+  <style>
+      th, td {
+       
+        width: 600px;
+       
+     }
+    .form{
+      background-color: white;
+    
+    }
+    .megha{
+  
+  display: block;
+ 
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+  </style>
+</head>
+
+
+<ng-template #content let-modal>
+<div class="modal-header" style="background-color: lightsteelblue;">
+  <h4 class="modal-title" id="modal-basic-title" >Customer Details</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" >
+ 
+  <form>
+      <div class="card-card">
+          <div class="card-body">
+            <form  #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
+              <div class="form-group">
+                <label ><b><i>Name</i></b></label>
+                <input type="text" name="name" [pattern]="namePattern"  class="form-control" placeholder="Enter Name.." #name="ngModel" ngModel>
+                <!-- <span class="help-block">Please enter your Position</span> -->
+              </div>
+              <div *ngIf="name.errors?.pattern"> 
+                <font color="red">Name is not valid.</font>
+             </div> 
+              <div class="form-group">
+                <label ><b><i>Contact Number</i></b></label>
+                <input type="text" name="contact"  [pattern]="cntPattern" class="form-control" placeholder="Enter Contact.." #cnt="ngModel" ngModel>
+                <!-- <span class="help-block">Please enter your Position</span> -->
+              </div>
+              <div *ngIf="cnt.errors?.pattern"> 
+                <font color="red">Contact Number is not valid.</font>
+             </div> 
+              <div class="form-group">
+                <label ><b><i>Email Id</i></b></label>
+                <input type="text" name="emailid"  [pattern]="emailPattern"  class="form-control" placeholder="Enter Email Id.." #email="ngModel" ngModel>
+                <!-- <span class="help-block">Please enter your Position</span> -->
+              </div>
+              <div *ngIf="email.errors?.pattern"> 
+                <font color="red">Email is not valid.</font>
+             </div>
+              <div class="form-group">
+                <label ><b><i>GST Number</i></b></label>
+                <input type="text" name="gst" [pattern]="gstPattern" class="form-control" placeholder="Enter GST Number.." #gst="ngModel" ngModel>
+                <!-- <span class="help-block">Please enter your Position</span> -->
+              </div>
+              <div *ngIf="gst.errors?.pattern"> 
+                <font color="red">GST Number is not valid.</font>
+             </div>
+              <div class="form-group">
+                <label ><b><i>Address</i></b></label>
+                <input type="text" name="address" class="form-control" placeholder="Enter Address.." ngModel>
+                <!-- <span class="help-block">Please enter your Position</span> -->
+              </div>
+           
+             <form [formGroup]="myForm">
+             <table>  
+                <thead>
+                    <tr>
+                      <th><label ><b><i>Product List</i></b></label></th>
+                      <th><label ><b><i>Rate</i></b></label></th>
+                    </tr>
+                  </thead>
+                 
+              <tr formArrayName="ClassDetails" *ngFor="let cd of myForm.controls.ClassDetails.controls;let i=index;">  
+                  <td formGroupName={{i}}>  
+                      <b> 
+                          <input type="checkbox"
+                          /> {{cd.get('Class').value}} 
+                       </b>  
+                      <input  type="text" formControlName="rate"/>
+                    </td> <br>
+              </tr>  
+          </table>
+          <!-- <input type="submit" value="submit"> -->
+          </form>
+          <input style="background-color:lightgoldenrodyellow;" type="submit" value="submit">
+                <input style="background-color:lightgoldenrodyellow;" type="submit" value="Close" (click)="modal.dismiss('Cross click')">
+            </form>
+          </div>
+        </div>
+   
+  </form>
+
+</div>
+<div class="modal-footer" style="background-color: lightsteelblue;">
+  <!-- <button type="button" style="background-color:lightgoldenrodyellow;" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+</div>
+</ng-template>
+
+
+<ng-template #content1 let-modal>
+  <div class="modal-header" style="background-color: lightsteelblue;">
+    <h4 class="modal-title" id="modal-basic-title" > Add</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+   
+    <form>
+        <div class="card-card">
+            <div class="card-body">
+              <form  #userlogin = "ngForm" (ngSubmit) = "onClickSubmit1(userlogin.value)" >
+                <div class="form-group">
+                  <label ><b><i>Name</i></b></label>
+                  <input type="text" name="name" class="form-control" placeholder="Enter Name.." ngModel>
+                  <!-- <span class="help-block">Please enter your Position</span> -->
+                </div>{{myresponse}}
+              
+               <form [formGroup]="myForm">
+               <table>  
+                  <thead>
+                      <tr>
+                        <th><label ><b><i>Product List</i></b></label></th>
+                        <th><label ><b><i>Rate</i></b></label></th>
+                      </tr>
+                    </thead>
+                   
+                <tr formArrayName="ClassDetails" *ngFor="let cd of myForm.controls.ClassDetails.controls;let i=index;">  
+                    <td formGroupName={{i}}>  
+                        <b> 
+                            <input type="checkbox"
+                            /> {{cd.get('Class').value}} 
+                         </b>  
+                        <input  type="text" formControlName="rate"/>
+                      </td> <br>
+                </tr>  
+            </table>
+            <!-- <input type="submit" value="submit"> -->
+            </form>
+            <input style="background-color:lightgoldenrodyellow;" type="submit" value="submit">
+                  <input style="background-color:lightgoldenrodyellow;" type="submit" value="Close" (click)="modal.dismiss('Cross click')">
+              </form>
+            </div>
+          </div>
+     
+    </form>
+  
+  </div>
+  <div class="modal-footer" style="background-color: lightsteelblue;">
+    <!-- <button type="button" style="background-color:lightgoldenrodyellow;" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+  </div>
+</ng-template>
+
+
+<form #myform="ngForm" (ngSubmit)="onClickSubmit12(myform.value)" >
+<div class="form"  >
+
+<table id="items" rules="value">
+<tr>
+ <td colspan="7" class="blank"><h3><b> AGRAWAL DAIRY & MINI MARKET</b></h3><br>
+   (Viman Nagar MAHARASHRA-411014)<br>
+Mob:-8446776779 &nbsp; Emailayalagrawal6880@gmail.com
+ </td>
+
+  <td colspan="2" class="blank">Tax Invoice<br>GST No:-27AIZPA4432B1ZF<br> FSSAI No.11513037009807</td>
+ <td rowspan="12"></td> 
+<div>
+  <table>
+    <tr>
+      <td  colspan="3" class="blank"><h4><b> AGRAWAL & MINI</b></h4></td>
+      <hr>
+      <td class="blank"><h4><b> DAIRY MARKET</b></h4></td>
+      <hr>
+    </tr>
+    <tr align="center">
+      <td class="blank" align="center">Counter Slip</td>
+    </tr>
+   
+   
+  </table>
+</div>
+
+</tr>
+<tr id="hiderow">
+<td colspan="7">
+  
+	
+    
+
+    <div class="row">
+       <label  class="col-sm-2 col-form-label">Bill No:- </label>
+        <div  class=" form-group col-sm-6">
+          <input name="bill_no"  value="{{value1}}" [(ngModel)]="value1" >
+          </div>
+  </div>
+  <br> 
+  <!-- <form  #userlogin1 ="ngForm" (ngSubmit)="search(userlogin1.value)" > -->
+ <div class="row">
+    <label class="col-sm-2 col-form-label">Name:-</label>
+         <div class="form-group" >
+                 <div class="controls" >
+                     <div class="input-group" >
+                      &nbsp;&nbsp;&nbsp;&nbsp;<input #nam size="18" class="form-control" type="text" name="name" (click)="onchange(nam.value)" ngModel >
+                     
+                     <span class="input-group-append">
+                      <button type="button" class="btn1" (click)="open(content)">+</button>
+                    </span>
+                   </div>
+                 </div>
+        </div>
+ </div>
+
+ <br>
+  <div class="row">
+     <label class="col-sm-2 col-form-label">Address:-</label>
+         <div class=" form-group col-sm-4">
+           <input type="text" class="form-control" name="note_of_add" [(ngModel)]="bill.note_of_add">
+         </div>
+  </div>
+  <button type="button"  (click)="open(content1)">+  </button>
+ </td>
+ <td colspan="2" style="padding: 4%;">
+
+  <div class="row" >
+    <label class="col-sm-3 col-form-label">Date:- </label>
+     <div class=" form-group col-sm-10">
+        <input type="date"  name="date1" class="form-control" size="8" height="1" ngModel></div>
+     
+</div>
+ 
+
+<br>
+<div class="row">
+    <label class="col-sm-5 col-form-label">GST no:-</label>
+        <div class=" form-group col-sm-10">
+          <input type="text" class="form-control" name="gst_no" [(ngModel)]="bill.gst_no" size="12"  > 
+        </div>
+ </div>
+
+</td>
+
+<div>
+  <table>
+      
+            <td colspan="5" style="padding: 12%;">
+  
+  <div class="row">
+      <label class="col-sm-4 col-form-label">Bill No:- </label>
+       <div class=" form-group col-sm-6">
+         <input type="text" class="form-control" name="bill" value="{{value1}}"   >
+         </div>
+       
+ </div>
+ <br>
+<div class="row" >
+    <label class="col-sm-3 col-form-label">Date:- </label>
+     <div class=" form-group col-sm-9">
+        <input type="date"  name="date" class="form-control" size="6" height="1" ngModel></div>
+     
+</div>
+<br>
+<div class="row">
+    <label class="col-sm-3 col-form-label">Name:-</label>
+        <div class=" form-group col-sm-9">
+          <input type="text" class="form-control" name="name"  [(ngModel)]="bill.c_name" > 
+        </div>
+ </div>
+
+</td>
+  </table>
+</div>
+
+
+</tr>
+
+<tr>
+
+      <th style="width:6%">Sr No</th>
+      <th style="width:8%">HSN Code</th>
+     <th  style="width:12%">Description</th>
+     <th style="width:6%">Rate</th>
+     <th style="width:8%">Quantity</th>
+     <th  style="width:6%">Gst Type</th>
+        <th  style="width:6%">GST%</th>
+   <td colspan="2" >
+        <table>
+            
+        <th size="10">GST Amt</th>
+        <th>Amount</th>
+      
+    </table>
+  </td>
+<td>
+   <table>
+     <tr>
+    <th style="width:12%">Des Of Good</th>
+    <th style="width:12%">Qty</th>
+    <th style="width:12%">Amount</th>
+    </tr>
+  </table>
+</td>
+</tr>
+
+    <tr class="item-row" *ngFor="let pro of myresponse9;let i=index;" >
+    <td>{{i+1}}</td>
+   <td >{{pro.p_HSN}}</td> 
+   <td><input #prod value="{{pro.pro_name}}" size="12"></td>
+   <td><input #rate value="{{pro.rate}}" size="2"></td>
+   <td><input #qty type="text" (change)="onclick12(qty.value,rate.value)" (change)="stockDispaly(prod.value,qty.value)" (change)="onSelect(pro,qty.value,rate.value)" size="2"><b>{{pro.pro_uom}}</b></td>
+   <td>
+      <input #gst type="text" size="2">
+  
+</td>
+   <td>
+      <input #gst1 type="text"  (change)="onclick12111(gst.value,gst1.value,qty.value,rate.value)"  size="2" >
+</td>
+<td colspan="2">
+ 
+<table>
+ 
+    <tr>
+   <td>{{pro.ans2}}</td>
+   <td>{{pro.ans3}}</td>
+  </tr>
+
+</table>
+</td>
+
+   <table>
+     
+     <tr *ngIf="num" >
+     <td>{{pro.pro_name}}</td>
+     <td><input type="text" value="{{qty.value}}"  size="2"><b>{{pro.pro_uom}}</b></td> 
+     <td>{{pro.ans3}}</td>
+     <td></td>
+    </tr>
+
+   
+   </table>
+  </tr>
+
+<tr>
+<!-- <td colspan="9"><a id="addrow" href="javascript:;" title="Add a row"></a></td> -->
+<table>
+<!-- <tr>
+  <td colspan="8"><a id="addrow" href="javascript:;" title="Add a row">
+  </a></td>
+
+</tr> -->
+</table>
+</tr>
+
+</table>
+<!-- <input type="submit"  class="btn btn-pill btn-block btn-primary" value="submit"> -->
+
+<table id="items" >
+   
+  <tr id="hiderow" height="5">
+    
+  <td colspan="5" style=" padding-bottom: 130px;">
+      
+        
+       
+    Amount(in words Indian Rs)  ______ <br>
+    <font size="3" > I/We here by certify that may/our are registration certificate under the GST Act,2017 is in force on
+   the date on which the sale of the good specified in this tax invoice is made by me/us and thet the <br>
+  transaction of the sales covered by this tax invoice has been effected by me.us and it shall be <br>
+  accounted for in the turnover of sales while filling of return and the due tax.If any,payable on the<br>
+  sales has been paid or shall be paid <br><br>
+  For-AGRAWAL DAIRY & MINI MARKET</font>
+
+   </td>
+  
+   <td colspan="3" style=" padding-bottom: 1px;">
+  
+    <div class="row">
+      <label class="col-sm-6 col-form-label">Gross Amt:-</label>
+          <div class="form-group col-sm-6">
+            <!-- <input name="gst_no" size="4" [(ngModel)]="bill.gst_no"  >  -->
+            <input type="text" name="grossamt" size="4" value="{{total2}}" (click)="changeValue();"  [(ngModel)]="total2">
+          </div>
+   </div>
+  <br>
+  
+  
+  <div class="row">
+    <label class="col-sm-6 col-form-label">Discount:-</label>
+        <div class="form-group col-sm-6">
+          <!-- <input name="gst_no" size="4" [(ngModel)]="bill.gst_no"  >  -->
+          <input type="text" name="grossamt" size="4" value="{{total2}}" (click)="changeValue();"  [(ngModel)]="total2">
+        </div>
+ </div>
+   <br>
+   <div class="row">
+    <label class="col-sm-6 col-form-label">CGST:-</label>
+        <div class="form-group col-sm-6">
+          <!-- <input name="gst_no" size="4" [(ngModel)]="bill.gst_no"  >  -->
+          <input type="text" name="cgst" size="4" value="{{total4}}" [(ngModel)]="total4"  >
+        </div>
+ </div>
+   <br>
+   <div class="row">
+    <label class="col-sm-6 col-form-label">SGST:-</label>
+        <div class="form-group col-sm-6">
+          <!-- <input name="gst_no" size="4" [(ngModel)]="bill.gst_no"  >  -->
+          <input type="text" name="sgst" size="4" value="{{total4}}" [(ngModel)]="total4">
+        </div>
+ </div>
+   <br>
+   <div class="row">
+    <label class="col-sm-6 col-form-label">IGST:-</label>
+        <div class="form-group col-sm-6">
+          <!-- <input name="gst_no" size="4" [(ngModel)]="bill.gst_no"  >  -->
+          <input type="text" name="igst"  size="4" value="{{total5}}" [(ngModel)]="total5">
+        </div>
+ </div>
+   <br>
+   <div class="row">
+    <label class="col-sm-6 col-form-label">Net Amt:-</label>
+        <div class="form-group col-sm-6">
+          <!-- <input name="gst_no" size="4" [(ngModel)]="bill.gst_no"  >  -->
+          <input type="text" name="netamt" size="4"  value="{{total1}}"[(ngModel)]="total1" >
+        </div>
+ </div>
+   
+  
+  </td>
+  
+  <td colspan="3">
+  
+    <div class="row">
+        <label class="col-sm-6 col-form-label">Gross Amt:-</label>
+            <div class="form-group col-sm-6">
+              <!-- <input name="gst_no" size="4" [(ngModel)]="bill.gst_no"  >  -->
+              <input type="text" name="grossamt1"  size="4" value="{{total2}}" [(ngModel)]="total2" >
+            </div>
+     </div>
+  
+  <br>
+  
+  <div class="row">
+    <label class="col-sm-6 col-form-label">Gst Amt:-</label>
+        <div class=" form-group col-sm-6">
+          <!-- <input  name="gst_no" size="4" height="1" [(ngModel)]="bill.gst_no">  -->
+          <input type="text" name="gstamount"  size="4" value="{{total}}"[(ngModel)]="total"  >
+        </div>
+  </div>
+  <br>
+  <div class="row">
+    <label class="col-sm-6 col-form-label">Net Amt:-</label>
+        <div class=" form-group col-sm-6">
+          <!-- <input name="gst_no" size="4" height="1" [(ngModel)]="bill.gst_no">  -->
+          <input type="text" name="netamt" size="4"  value="{{total1}}"[(ngModel)]="total1" >
+        </div>
+  </div>
+  <br>
+  <hr>
+  
+  <table>
+    <tr>
+      
+      <td colspan="1" class="blank" align ="center">Receiver Sign</td>
+     
+    </tr>
+    <br>
+    <br>
+    <tr>
+      
+      <td colspan="1" class="blank" align ="center">_____________</td>
+     
+    </tr>
+  
+  </table> 
+    
+   
+   
+  
+  
+  
+  
+  </td>
+  
+  </tr>
+  
+  
+  <tr height="6" style='visibility:collapse'>
+  <th class="blank" ></th>
+  <th class="blank" ></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  
+  
+      
+     <td colspan="2">
+          <table>
+              
+           <th>GST Amt</th>
+          <th>Amount</th>
+             </table>
+    </td>
+  <td>
+    
+  </td>
+  </tr>
+  
+      
+  
+  <tr id="hiderow">
+  <td colspan="9"><a id="addrow" href="javascript:;" title="Add a row"></a></td>
+  <table>
+  <tr>
+    <td colspan="8"><a id="addrow" href="javascript:;" title="Add a row">
+    </a></td>
+  
+  </tr>
+  </table>
+  </tr>
+  
+  </table>
+
+</div>
+<div class="w3-bar"> 
+  <div class="input-group">
+      <div class="row align-items-center">
+        
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <input type="submit" class="btn btn-block btn-primary" value="submit" (click)="print()">
+         </div>
+
+         
+
+
+            
+        </div>
+  </div>
+</div>
+<!-- <input type="submit"  class="btn btn-pill btn-block btn-primary" value="submit" (click)="print()"> -->
+</form>
+
+<!-- <head>
+    <style>
+        th, td {
+         
+          width: 900px;
+          height: 30px;
+       }
+      .form{
+        background-color: white;
+      }
+      .tst{
+        background-size: 40%;
+        
+      }
+      
+    </style>
+ </head>
+ <body>
+<table style=" background-color: white;">
+    
+    <tr id="hiderow">
+        <td colspan="9"><a id="addrow" href="javascript:;" title="Add a row"></a></td>
+        <table>
+          <tr>
+            <td colspan="8"><a id="addrow" href="javascript:;" title="Add a row">
+            </a></td>
+        
+        </tr>
+        </table>
+        </tr>
+
+        <tr>
+           <td class="total-value"> <button type="button" class="btn1" (click)="open(content1)">+</button> </td>
+        </tr>
+        
+        <tr>
+          <td colspan="6" class="blank"> </td>
+         <td colspan="2"  class="total-line balance"><b>Gross Amt</b></td>
+         
+         <td class="total-value"> <input type="text" name="grossamt" value="{{total2}}" (click)="changeValue();"  [(ngModel)]="total2"> </td>
+          <table>
+          <tr>
+            
+            <td colspan="1" class="blank">Gross Amt</td>
+            <td class="blank"><input type="text" name="grossamt1" value="{{total2}}" [(ngModel)]="total2" ></td>
+          </tr>  
+        
+        </table>
+        
+        </tr>
+        <tr>
+        
+         <td colspan="6" class="blank"> </td>
+         <td colspan="2" class="total-line balance"><b>Discount</b></td>
+         <td class="total-value"><div id="total">$875.00</div></td>
+         <table>
+          <tr>
+            
+            <td colspan="1" class="blank">Gst Amt</td>
+            <td class="blank"><input type="text" name="gstamount" value="{{total}}"[(ngModel)]="total"  ></td>
+          </tr>  
+        
+        </table>
+        </tr>
+        <tr>
+         <td colspan="6" class="blank"> </td>
+         <td colspan="2" class="total-line balance"><b>CGST</b></td>
+        
+         <td class="total-value"><input type="text" name="cgst" value="{{total4}}" [(ngModel)]="total4"  ></td>
+         <table>
+          <tr>
+        
+        <td colspan="1" class="blank">Net Amt</td>
+            <td class="blank"><input type="text" name="netamt"  value="{{total1}}"[(ngModel)]="total1" ></td>
+          </tr>  
+        
+        </table>
+        </tr>
+        <tr>
+         <td colspan="6" class="blank"> </td>
+         <td colspan="2" class="total-line balance"><b>SGST</b></td>
+         <td class="total-value"><input type="text" name="sgst" value="{{total4}}" [(ngModel)]="total4"></td>
+         <hr>
+         <table>
+          <tr>
+            
+            <td colspan="1" class="blank" align ="center">Receiver Sign</td>
+           
+          </tr>  
+        
+        </table> 
+         </tr>
+         <tr>
+         <td colspan="6" class="blank"> </td>
+         <td colspan="2" class="total-line balance"><b>IGST</b></td>
+         <td class="total-value"><input type="text" name="igst" value="{{total5}}" [(ngModel)]="total5"></td>
+         </tr>
+         <tr>
+         <td colspan="6" class="blank"> </td>
+         <td colspan="2" class="total-line balance"><b>Net Amt</b></td>
+         <td class="total-value"><input type="text" name="netamt1" value="{{total1}}" [(ngModel)]="total1"></td>
+         <table>
+          <tr>
+            
+            <td colspan="1" class="blank" align="center">--------------</td>
+           
+          </tr>  
+        
+        </table>
+        </tr>
+        
+        
+       
+</table>
+</body>
+ <input type="submit"  class="btn btn-pill btn-block btn-primary" value="submit" (click)="print()">
+</form> -->
+
+

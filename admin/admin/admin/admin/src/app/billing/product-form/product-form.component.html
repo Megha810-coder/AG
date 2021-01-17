@@ -1,0 +1,141 @@
+
+
+   <head>
+    <style>
+      .card-header {
+        background-color: #BFC9CA;
+  
+      }
+    </style>
+  </head>
+  <div class="animated fadeIn">
+    <div class="row">
+        <div class>
+                         
+            <a [routerLink] = "'/billing/Product'"> <button type="button" class="btn btn-sm btn-primary">Back</button> </a>
+        </div>
+        <br>
+        <br>
+
+      <div class="col-md-12">
+            
+        <div class="card">
+          <div class="card-header">
+            <h3>Product</h3>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit) = "onClickSubmit()">
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input"> * Brand Name:-</label>
+                <div class="col-md-3">
+                  <input  name="p_brand" type="text" [pattern]="bnamePattern" class=" form-control"  #bname="ngModel" [(ngModel)]="bill.p_brand" >
+  
+                </div>
+                
+              </div>
+              <div *ngIf="bname.errors?.pattern"> 
+                <font color="red">Brand Name is not valid.</font>
+             </div> 
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input"> * Product Name:-</label>
+                <div class="col-md-3">
+                  <input  name="p_name" type="text"  [pattern]="pnamePattern" class=" form-control"   #pname="ngModel" [(ngModel)]="bill.p_name" >
+                </div>
+              </div>
+              <div *ngIf="pname.errors?.pattern"> 
+                <font color="red">Product Name is not valid.</font>
+             </div>
+              
+  
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="date-input">HSN Code:- </label>
+                <div class="col-md-3">
+                  <input class="form-control"  [pattern]="hsnPattern" type="text" name="p_code"  #hsn="ngModel" [(ngModel)]="bill.p_code"  >
+                </div>
+              </div>
+              <div *ngIf="hsn.errors?.pattern"> 
+                <font color="red">HSN Code is not valid.</font>
+             </div>
+              <!-- <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="date-input">Size:- </label>
+                <div class="col-md-3">
+                  <input class="form-control"  type="text" name="size" [(ngModel)]="bill.size">
+                </div>
+              </div>
+             -->
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input"> * Rate(Price):-</label>
+                <div class="col-md-3">
+                  <input  name="rate" type="text"  [pattern]="rtPattern" class=" form-control"  #rate="ngModel" [(ngModel)]="bill.rate" >
+  
+                </div>
+                
+              </div>
+              <div *ngIf="rate.errors?.pattern"> 
+                <font color="red">Rate is not valid.</font>
+             </div>
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input"> Quantity :-</label>
+                <div class="col-md-3">
+                  <input  name="packages" type="text"  [pattern]="quantityPattern" class=" form-control"  #qty="ngModel" [(ngModel)]="bill.packages">
+  
+                </div>
+                
+              </div>
+              <div *ngIf="qty.errors?.pattern"> 
+                <font color="red">Quantity is not valid.</font>
+             </div>
+              <!-- <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input"> Minimum Quantity:-</label>
+                <div class="col-md-3">
+                  <input  name="min_quantity" type="text"  [pattern]="minquantityPattern" class=" form-control"  #minqty="ngModel" [(ngModel)]="bill.min_quantity" >
+  
+                </div>
+                
+              </div> -->
+              <!-- <div *ngIf="minqty.errors?.pattern"> 
+                <font color="red"> Minimum Quantity is not valid.</font>
+             </div> -->
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input"> UOM:-</label>
+                <div class="col-md-3">
+                  <input  name="uom" type="text"  [pattern]="uomPattern" class=" form-control"  #uom="ngModel" [(ngModel)]="bill.uom">
+  
+                </div>
+                
+              </div>
+              <div *ngIf="uom.errors?.pattern"> 
+                <font color="red">UOM is not valid.</font>
+             </div>
+              <div class="card-footer">
+                <input type = "submit" value = "submit" class="btn btn-sm btn-primary" data-toggle="modal" (click)="infoModal.show()">
+              </div>
+        </form>
+      </div>
+        </div>
+  
+      </div>
+     
+    </div>
+   
+  </div>
+  <div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Send</h4>
+          <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Your Data Saved successfully.&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+          <a [routerLink] = "'/billing/Product'">  <button type="button" class="btn btn-info">Okay</button></a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  

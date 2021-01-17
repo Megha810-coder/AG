@@ -1,0 +1,141 @@
+<head>
+  <style>
+    .card-header {
+      background-color: #BFC9CA;
+
+    }
+  </style>
+</head>
+<div class="animated fadeIn">
+  <div class="row">
+      <div class>
+          <a [routerLink] = "'/billing/vendors'"> <button type="button" class="btn btn-sm btn-primary">Back</button> </a>
+      </div>
+      <br>
+      <br>
+
+    <div class="col-md-12">
+          
+      <div class="card">
+        <div class="card-header">
+          <h3>Vendor</h3>
+        </div>
+        <div class="card-body">
+          <form  (ngSubmit) = "onClickSubmit()">
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input"> Vendors Name:-</label>
+              <div class="col-md-3">
+                <input  name="v_name" [pattern]="namePattern"  type="text" class="form-control" (click)="onchange(nam.value)"  #name="ngModel" [(ngModel)]="bill.v_name">
+              </div>
+              <div *ngIf="name.errors?.pattern"> 
+                <font color="red">Name is not valid.</font>
+             </div> 
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input"> Contact Number:-</label>
+              <div class="col-md-3">
+                <input  name="conatct_no" [pattern]="cntPattern" type="text" class=" form-control" #cnt="ngModel"  [(ngModel)]="bill.conatct_no" >
+              </div>
+              <div *ngIf="cnt.errors?.pattern"> 
+                <font color="red">Contact Number is not valid.</font>
+             </div> 
+            </div>
+
+            
+
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="date-input">GST Number:- </label>
+              <div class="col-md-3">
+                <input class="form-control" [pattern]="gstPattern" type="text" name="gst_no"  #gst="ngModel"  [(ngModel)]="bill.gst_no"  >
+              </div>
+              <div *ngIf="gst.errors?.pattern"> 
+                <font color="red">GST Number is not valid.</font>
+             </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="date-input">Address:- </label>
+              <div class="col-md-3">
+                <textarea class="form-control"  type="text" name="address" [(ngModel)]="bill.address"></textarea>
+              </div>
+            </div>
+          
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input"> City:-</label>
+              <div class="col-md-3">
+                <input  name="city" type="text" class=" form-control" [(ngModel)]="bill.city" >
+
+              </div>
+              
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input"> Email Id :-</label>
+              <div class="col-md-3">
+                <input  name="email_id" [pattern]="emailPattern"  type="text" class=" form-control" #email="ngModel" [(ngModel)]="bill.email_id">
+              </div>
+              <div *ngIf="email.errors?.pattern"> 
+                <font color="red">Email is not valid.</font>
+             </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input"> CGST in(%):-</label>
+              <div class="col-md-3">
+                <input  name="cgst" type="text" class=" form-control" [(ngModel)]="bill.cgst" >
+
+              </div>
+              
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input"> SGST in(%):-</label>
+              <div class="col-md-3">
+                <input  name="sgst" type="text" class=" form-control" [(ngModel)]="bill.sgst">
+
+              </div>
+              
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input"> IGST in(%):-</label>
+                <div class="col-md-3">
+                  <input  name="igst" type="text" class=" form-control" [(ngModel)]="bill.igst">
+  
+                </div>
+                
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input"> WebSite:-</label>
+                  <div class="col-md-3">
+                    <input  name="website" type="text" class=" form-control" [(ngModel)]="bill.website">
+    
+                  </div>
+                  
+                </div>
+            <div class="card-footer">
+              <input type = "submit" value = "submit"  class="btn btn-sm btn-primary" data-toggle="modal" (click)="infoModal.show()">
+            </div>
+      </form>
+    </div>
+      </div>
+
+    </div>
+   
+  </div>
+ 
+</div>
+<div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Send</h4>
+        <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your Data Saved successfully.&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+        <a [routerLink] = "'/billing/vendors'">  <button type="button" class="btn btn-info">Okay</button></a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

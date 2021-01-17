@@ -1,0 +1,96 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+           
+
+            <div class="card p-4">
+              <div align="right">
+                <!-- <img src="/assets/img/avatars/logo.jpg/" alt="1"style="width:40px;height:40px;"align="right"> -->
+              </div>
+                <h6 align="right">SPCL Infotech Service PVT LTD  </h6>
+              <div class="card-body">
+                
+                <form #f="ngForm" (ngSubmit)="onSubmit()">
+                  <h1>Login</h1>
+                  <p class="text-muted">Sign In to your account</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                   <input type="text" class="form-control" placeholder="Username" autocomplete="username" name="username"[(ngModel)]="username"> 
+                    <!-- User Name : <input type="text" name="username" [(ngModel)]="username"> -->
+                  </div>
+                 
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                    <!-- Password : <input type="password" name="password" [(ngModel)]="password"> -->
+
+                     <input type="password" class="form-control" placeholder="Password"  name="password" autocomplete="current-password" [(ngModel)]="password" > 
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-primary px-4" (click)="checkLogin();">Login</button>
+                    </div>
+                    <div class="col-6 text-right">
+                      <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+            <div align="center" >
+             <h1 style="color: black;font-style:colonna MT Regular;"><b>AGRAWAL DAIRY &<br>MINI MARKET</b></h1><br>
+               <!-- <img src="/assets/img/avatars/m.jpg/" alt="1"style="width:150px;height:150px;">  -->
+               <a class="nav-link"  href="#" role="button" aria-haspopup="true" aria-expanded="false" >
+                  <img src="assets/img/avatars/m.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" style="width:150px;height:150px;"/>
+                </a>
+              </div>
+          </div>
+             <!-- <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+              <div class="card-body text-center">
+                <div>
+                  <img src="/assets/img/avatars/1.jpg/" alt="1" style="width:44%">
+                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button type="button" class="btn btn-primary active mt-3">Register Now!</button> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div> -->
+
+<!-- <div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Send</h4>
+        <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p >Login Successfully.....&hellip;</p>
+       
+      </div>
+      <div class="modal-footer">
+     
+        <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+           <div>
+          <button type="button" class="btn btn-info" (click)="login();">Okay</button>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+  </div>
+  
+ -->
